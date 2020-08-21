@@ -1,0 +1,26 @@
+{
+  "name": "textile-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "dependencies": {
+    "@textile/hub": "^0.6.1",
+    "@textile/threads-id": "^0.1.13",
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --content-base public"
+  },
+  "author": "",
+  "license": "ISC"
+}
