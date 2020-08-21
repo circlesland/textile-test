@@ -4,8 +4,7 @@ import {Threads} from "./threads/threads";
 import {Users} from "./users/users";
 
 const keyinfo: KeyInfo = {
-    key: 'bna3znzdlwedldezod5vtn7wd3a',
-    secret: 'bkcl6scbiyvceiwztljxuxfanfke22spxpzuhc5y'
+    key: 'bna3znzdlwedldezod5vtn7wd3a'
 }
 
 async function doStuff()
