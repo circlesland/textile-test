@@ -8,8 +8,9 @@ export class Users
         if (!keyinfo.secret)
             throw new Error("The secret is required");
 
-        const client = await Client.withKeyInfo(keyinfo)
         const identity = await KeyStore.getOrCreateIdentity();
+        const userAuth = await KeyStore.loginWithChallenge(identity)
+        const client = await Client.withUserAuth(userAuth)
         const token = await client.getToken(identity);
         const expires = new Date(Date.now() + 60 * 1000);
         const auth = await createUserAuth(keyinfo.key, keyinfo.secret, expires, token);

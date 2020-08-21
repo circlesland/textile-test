@@ -16,8 +16,8 @@ export class Buckets
     public static async openOrCreate(key: KeyInfo) : Promise<Buckets>
     {
         const identity = await KeyStore.getOrCreateIdentity();
-        const bucketsApi = await TextileBuckets.withKeyInfo(key);
-        await bucketsApi.getToken(identity);
+        const userAuth = await KeyStore.loginWithChallenge(identity);
+        const bucketsApi = await TextileBuckets.withUserAuth(userAuth);
 
         let threadId = localStorage.getItem(Buckets.dataThreadIdLocalStorageKey);
         let rootKey = localStorage.getItem(Buckets.defaultBucketRootKeyLocalStorageKey);

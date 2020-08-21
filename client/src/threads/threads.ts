@@ -14,11 +14,11 @@ export class Threads
             throw new Error("The secret is required");
         }
 
-        const auth = await createUserAuth(key.key, key.secret);
-        const identity = await KeyStore.getOrCreateIdentity();
+        //const auth = await createUserAuth(key.key, key.secret);
+        const auth = await KeyStore.loginWithChallenge(await KeyStore.getOrCreateIdentity());
         const client = Client.withUserAuth(auth)
 
-        await client.getToken(identity)
+        //await client.getToken(identity)
 
         let threadId = localStorage.getItem(Threads.dbThreadLocalStorageKey);
         if (!threadId)
